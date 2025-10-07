@@ -80,7 +80,7 @@
           </div>
           <div class="h-[1px] mt-7 mb-7 w-20 bg-amber-200"></div>
 
-          <div class="hidden md:block text-sm text-slate-300 space-y-2">
+          <div class="block text-sm text-slate-300 space-y-2">
             <p><strong>Email:</strong> khalilamir230701@gmail.com</p>
             <p><strong>Location:</strong> Indonesia</p>
             <p>
