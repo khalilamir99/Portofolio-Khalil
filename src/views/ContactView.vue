@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto p-3 md:p-8 text-white">
+  <div class="container mx-auto p-3 md:p-8 text-white pb-24 md:pb-8">
     <div class="flex flex-col md:flex-row relative">
       <!-- Bagian kiri: Form kontak -->
       <div class="w-full md:w-2/3">
@@ -15,7 +15,6 @@
             @submit.prevent="sendMessage"
             class="flex flex-col gap-4 bg-[#1e1e1f] border border-[#383838] rounded-xl p-6"
           >
-            <!-- Hidden Access Key -->
             <input type="hidden" name="access_key" :value="accessKey" />
 
             <div>
@@ -60,7 +59,6 @@
             </button>
           </form>
 
-          <!-- Pesan sukses atau error -->
           <p v-if="successMessage" class="text-green-400 mt-3">
             {{ successMessage }}
           </p>
@@ -72,15 +70,28 @@
 
       <!-- Bagian kanan: Info -->
       <div class="w-full md:w-1/3 h-fit p-8 md:sticky md:top-24">
-        <div class="flex flex-col text-left">
+        <div
+          class="flex flex-col text-left fade-zoom-up delay-300"
+          :class="{ 'trigger-animate': triggerAnimation }"
+        >
+          <!-- Teks dengan animasi -->
           <div
-            class="bg-clip-text bg-gradient-to-r from-slate-100 to-amber-300 text-transparent"
+            class="bg-clip-text bg-gradient-to-r from-slate-100 to-amber-300 text-transparent text-xl font-semibold opacity-0"
+            :class="{ 'animate-fadeText': triggerAnimation }"
           >
             Let's connect and collaborate!
           </div>
-          <div class="h-[1px] mt-7 mb-7 w-20 bg-amber-200"></div>
 
-          <div class="block text-sm text-slate-300 space-y-2">
+          <!-- Garis animasi -->
+          <div
+            class="h-[1px] mt-7 mb-7 w-20 bg-amber-200 opacity-0"
+            :class="{ 'animate-line': triggerAnimation }"
+          ></div>
+
+          <div
+            class="block text-sm text-slate-300 space-y-2 opacity-0"
+            :class="{ 'animate-fadeText delay-500': triggerAnimation }"
+          >
             <p><strong>Email:</strong> khalilamir230701@gmail.com</p>
             <p><strong>Location:</strong> Indonesia</p>
             <p>
@@ -97,12 +108,19 @@
 export default {
   data() {
     return {
-      accessKey: "a986c565-e3cc-4ab0-9e4d-9debf997d1af", // ganti dengan Access Key kamu
+      accessKey: "a986c565-e3cc-4ab0-9e4d-9debf997d1af",
       form: { name: "", email: "", message: "" },
       isLoading: false,
       successMessage: "",
       errorMessage: "",
+      triggerAnimation: false, // 🔹 tambahan
     };
+  },
+  mounted() {
+    // 🔹 animasi hanya jalan setelah komponen dimount
+    setTimeout(() => {
+      this.triggerAnimation = true;
+    }, 150);
   },
   methods: {
     async sendMessage() {
@@ -147,17 +165,68 @@ export default {
 </script>
 
 <style scoped>
+/* Animasi muncul lembut dari bawah */
 @keyframes fadeZoomUp {
   0% {
     opacity: 0;
-    transform: scale(0.5);
+    transform: translateY(30px) scale(0.9);
+    visibility: hidden;
   }
   100% {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0) scale(1);
+    visibility: visible;
   }
 }
 .fade-zoom-up {
-  animation: fadeZoomUp 1s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  animation: fadeZoomUp 1s ease-in-out forwards;
+}
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+/* Animasi teks */
+@keyframes fadeText {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+}
+.animate-fadeText {
+  opacity: 0;
+  visibility: hidden;
+  animation: fadeText 1.2s ease-out forwards;
+}
+
+/* Animasi garis dari kiri */
+@keyframes lineGrow {
+  0% {
+    width: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    width: 5rem;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.animate-line {
+  opacity: 0;
+  visibility: hidden;
+  animation: lineGrow 1.2s ease-out forwards;
+}
+
+/* Delay tambahan */
+.delay-500 {
+  animation-delay: 0.5s;
 }
 </style>
