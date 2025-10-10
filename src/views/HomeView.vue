@@ -2,7 +2,6 @@
   <main
     class="mt-10 md:mt-1 flex flex-col-reverse gap-8 items-center md:flex-row md:gap-16 md:justify-center min-h-[65vh] md:min-h-[80vh]"
   >
-    <!-- Text Section -->
     <div class="space-y-2 text-center md:text-left px-10">
       <p class="text-amber-200">Hello World, I'm</p>
 
@@ -62,7 +61,6 @@
       -->
     </div>
 
-    <!-- Image Section -->
     <div class="flex justify-center md:justify-start fadein-right">
       <img
         alt="avatar"
@@ -133,18 +131,15 @@ export default {
 </script>
 
 <style>
-/* Layout Behavior */
 body {
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-/* Typewriter Effect */
 .typewrite > .wrap {
   border-right: 0.08em solid #fff;
 }
 
-/* Waving Hand Emoji */
 .wave {
   animation: wave-animation 2.5s infinite;
   transform-origin: 70% 70%;
@@ -174,14 +169,12 @@ body {
   }
 }
 
-/* Image Shadow */
 .pict {
   box-shadow: 0px 0px 73px -9px rgba(255, 219, 112, 0.44);
   -webkit-box-shadow: 0px 0px 73px -9px rgba(255, 219, 112, 0.44);
   -moz-box-shadow: 0px 0px 73px -9px rgba(255, 219, 112, 0.44);
 }
 
-/* Fade Animations */
 .fadein-up {
   opacity: 0;
   animation: fadeInUp 0.5s forwards;
@@ -249,7 +242,6 @@ body {
   }
 }
 
-/* Delay Variants */
 .fadein-1 {
   animation-delay: 200ms;
 }

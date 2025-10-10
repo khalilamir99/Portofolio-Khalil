@@ -1,6 +1,4 @@
 <template>
-  <!-- component -->
-  <!-- This is an example component -->
   <div class="max-w-7xl mx-auto flex flex-col relative">
     <nav
       class="max-w-7xl px-5 md:fixed top-0 z-[98] w-screen backdrop-blur-md bg-[#121212] bg-opacity-80"
@@ -18,7 +16,7 @@
           <a href="https://github.com/khalilamir99"
             ><img
               class="w-9 rounded-full"
-              src="https://seeklogo.com/images/G/github-logo-2E3852456C-seeklogo.com.png"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ99rRvsvKE2qN5gcmN-sSogA2NMkO2eg3qcUVR_eC9vl4tyO_p17yZiwgtaVvdh1lhgo&usqp=CAU"
               alt="github"
           /></a>
         </div>
@@ -107,8 +105,8 @@ export default {
 }
 
 ::-webkit-scrollbar {
-  width: 5px; /* for vertical scrollbar */
-  height: 5px; /* for horizontal scrollbar */
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {

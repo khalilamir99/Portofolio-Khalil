@@ -1,7 +1,6 @@
 <template>
   <div class="container mx-auto p-3 md:p-8 text-white pb-24 md:pb-8">
     <div class="flex flex-col md:flex-row relative">
-      <!-- Bagian kiri: Form kontak -->
       <div class="w-full md:w-2/3">
         <div class="flex flex-col gap-6 md:px-20 fade-zoom-up">
           <h1 class="text-2xl font-bold text-amber-300">Contact Me</h1>
@@ -10,7 +9,6 @@
             out using the form below.
           </p>
 
-          <!-- Form Web3Forms -->
           <form
             @submit.prevent="sendMessage"
             class="flex flex-col gap-4 bg-[#1e1e1f] border border-[#383838] rounded-xl p-6"
@@ -68,13 +66,11 @@
         </div>
       </div>
 
-      <!-- Bagian kanan: Info -->
       <div class="w-full md:w-1/3 h-fit p-8 md:sticky md:top-24">
         <div
           class="flex flex-col text-left fade-zoom-up delay-300"
           :class="{ 'trigger-animate': triggerAnimation }"
         >
-          <!-- Teks dengan animasi -->
           <div
             class="bg-clip-text bg-gradient-to-r from-slate-100 to-amber-300 text-transparent text-xl font-semibold opacity-0"
             :class="{ 'animate-fadeText': triggerAnimation }"
@@ -82,7 +78,6 @@
             Let's connect and collaborate!
           </div>
 
-          <!-- Garis animasi -->
           <div
             class="h-[1px] mt-7 mb-7 w-20 bg-amber-200 opacity-0"
             :class="{ 'animate-line': triggerAnimation }"
@@ -113,11 +108,10 @@ export default {
       isLoading: false,
       successMessage: "",
       errorMessage: "",
-      triggerAnimation: false, // 🔹 tambahan
+      triggerAnimation: false,
     };
   },
   mounted() {
-    // 🔹 animasi hanya jalan setelah komponen dimount
     setTimeout(() => {
       this.triggerAnimation = true;
     }, 150);
@@ -165,7 +159,6 @@ export default {
 </script>
 
 <style scoped>
-/* Animasi muncul lembut dari bawah */
 @keyframes fadeZoomUp {
   0% {
     opacity: 0;
@@ -187,7 +180,6 @@ export default {
   animation-delay: 0.3s;
 }
 
-/* Animasi teks */
 @keyframes fadeText {
   0% {
     opacity: 0;
@@ -206,7 +198,6 @@ export default {
   animation: fadeText 1.2s ease-out forwards;
 }
 
-/* Animasi garis dari kiri */
 @keyframes lineGrow {
   0% {
     width: 0;
@@ -225,7 +216,6 @@ export default {
   animation: lineGrow 1.2s ease-out forwards;
 }
 
-/* Delay tambahan */
 .delay-500 {
   animation-delay: 0.5s;
 }
